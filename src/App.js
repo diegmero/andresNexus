@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import AppRouter from './AppRouter';
+import { AuthProvider } from './context/AuthContext'; // Importar AuthProvider
+import { CartProvider } from './context/CartContext'; // Importar CartProvider
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <CartProvider>
+        <div className="App">
+          <AppRouter />
+        </div>
+      </CartProvider>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
